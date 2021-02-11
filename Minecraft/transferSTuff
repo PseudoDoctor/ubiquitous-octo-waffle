@@ -1,0 +1,10 @@
+UUID="560f55d0-f2e7-40b7-9783-7457fdf2ce48"
+/dev/sdb1 on /home/amp/.ampdata type ext4 (rw,relatime)
+UUID="560f55d0-f2e7-40b7-9783-7457fdf2ce48" /home/amp/.ampdata auto nosuid,nodev,nofail,x-gvfs-show 0 0
+
+guts.onineko.com:/home/amp/.ampdata/instances/Minecraft01
+/home/amp/.ampdata/instances
+rsync -avPzu guts.onineko.com:/home/amp/.ampdata/instances/Minecraft01/ /home/amp/.ampdata/instances/Minecraft01
+rsync -avPzu --exclude lost+found guts.onineko.com:/home/amp/.ampdata/instances/Minecraft01/Minecraft/ /home/amp/.ampdata/instances/Riley/Minecraft
+rsync guts.onineko.com:/home/amp/.ampdata/instances/Minecraft01/AMPConfig.conf /home/amp/.ampdata/instances/Minecraft02/AMPConfig.conf
+# /dev/sdb1        98G   36G   58G  39% /home/amp/.ampdata/instances/Minecraft01/Minecraft

@@ -1,0 +1,25 @@
+gcloud iam service-accounts create markghill-dns --display-name="Service Account to support ACME DNS-01 challenge." --project=norse-blade-265903
+gcloud projects add-iam-policy-binding norse-blade-265903 --member=serviceAccount:markghill-dns@norse-blade-265903.iam.gserviceaccount.com --role=roles/dns.admin
+
+export PROJECT_NAME=norse-blade-265903
+
+# create service account
+gcloud iam service-accounts create itsmetommy-dns \
+  --display-name="Service Account to support ACME DNS-01 challenge." \
+  --project=$PROJECT_NAME
+
+# give dns admin permissions
+gcloud projects add-iam-policy-binding $PROJECT_NAME \
+  --member=serviceAccount:itsmetommy-dns@$PROJECT_NAME.iam.gserviceaccount.com \
+  --role=roles/dns.admin
+
+apt remove --purge nginx nginx-full nginx-common certbot python3-certbot-nginx python3-certbot-dns-google
+apt install nginx certbot python3-certbot-nginx python3-certbot-dns-google
+sudo certbot --nginx
+# /usr/lib/python3/dist-packages/certbot_dns_google/dns_google.py
+# super(Authenticator, cls).add_parser_arguments(add, default_propagation_seconds=60)
+--dns-google-propagation-seconds
+sudo certbot certonly --dns-google --dns-google-propagation-seconds 120 -d katara.markghill.com -d cassandra.markghill.com
+
+sudo apt install nginx certbot python3-certbot-nginx
+sudo certbot --nginx -d guts.onineko.com
