@@ -1,0 +1,83 @@
+root@www:/etc/nginx# ll
+total 72
+drwxr-xr-x  8 root root 4096 Sep 13 01:44 ./
+drwxr-xr-x 95 root root 4096 Sep 13 01:23 ../
+drwxr-xr-x  2 root root 4096 Apr 21 14:49 conf.d/
+-rw-r--r--  1 root root 1077 Feb  4  2019 fastcgi.conf
+-rw-r--r--  1 root root 1007 Feb  4  2019 fastcgi_params
+-rw-r--r--  1 root root 2837 Feb  4  2019 koi-utf
+-rw-r--r--  1 root root 2223 Feb  4  2019 koi-win
+-rw-r--r--  1 root root 3957 Feb  4  2019 mime.types
+drwxr-xr-x  2 root root 4096 Apr 21 14:49 modules-available/
+drwxr-xr-x  2 root root 4096 Sep 13 01:13 modules-enabled/
+-rw-r--r--  1 root root 1490 Feb  4  2019 nginx.conf
+-rw-r--r--  1 root root  180 Feb  4  2019 proxy_params
+-rw-r--r--  1 root root  636 Feb  4  2019 scgi_params
+drwxr-xr-x  2 root root 4096 Sep 13 01:13 sites-available/
+drwxr-xr-x  2 root root 4096 Sep 13 01:13 sites-enabled/
+drwxr-xr-x  2 root root 4096 Sep 13 01:13 snippets/
+-rw-r--r--  1 root root  664 Feb  4  2019 uwsgi_params
+-rw-r--r--  1 root root 3071 Feb  4  2019 win-utf
+root@www:/etc/nginx# ls -lr
+total 64
+-rw-r--r-- 1 root root 3071 Feb  4  2019 win-utf
+-rw-r--r-- 1 root root  664 Feb  4  2019 uwsgi_params
+drwxr-xr-x 2 root root 4096 Sep 13 01:13 snippets
+drwxr-xr-x 2 root root 4096 Sep 13 01:13 sites-enabled
+drwxr-xr-x 2 root root 4096 Sep 13 01:13 sites-available
+-rw-r--r-- 1 root root  636 Feb  4  2019 scgi_params
+-rw-r--r-- 1 root root  180 Feb  4  2019 proxy_params
+-rw-r--r-- 1 root root 1490 Feb  4  2019 nginx.conf
+drwxr-xr-x 2 root root 4096 Sep 13 01:13 modules-enabled
+drwxr-xr-x 2 root root 4096 Apr 21 14:49 modules-available
+-rw-r--r-- 1 root root 3957 Feb  4  2019 mime.types
+-rw-r--r-- 1 root root 2223 Feb  4  2019 koi-win
+-rw-r--r-- 1 root root 2837 Feb  4  2019 koi-utf
+-rw-r--r-- 1 root root 1007 Feb  4  2019 fastcgi_params
+-rw-r--r-- 1 root root 1077 Feb  4  2019 fastcgi.conf
+drwxr-xr-x 2 root root 4096 Apr 21 14:49 conf.d
+root@www:/etc/nginx# ls -lR
+.:
+total 64
+drwxr-xr-x 2 root root 4096 Apr 21 14:49 conf.d
+-rw-r--r-- 1 root root 1077 Feb  4  2019 fastcgi.conf
+-rw-r--r-- 1 root root 1007 Feb  4  2019 fastcgi_params
+-rw-r--r-- 1 root root 2837 Feb  4  2019 koi-utf
+-rw-r--r-- 1 root root 2223 Feb  4  2019 koi-win
+-rw-r--r-- 1 root root 3957 Feb  4  2019 mime.types
+drwxr-xr-x 2 root root 4096 Apr 21 14:49 modules-available
+drwxr-xr-x 2 root root 4096 Sep 13 01:13 modules-enabled
+-rw-r--r-- 1 root root 1490 Feb  4  2019 nginx.conf
+-rw-r--r-- 1 root root  180 Feb  4  2019 proxy_params
+-rw-r--r-- 1 root root  636 Feb  4  2019 scgi_params
+drwxr-xr-x 2 root root 4096 Sep 13 01:13 sites-available
+drwxr-xr-x 2 root root 4096 Sep 13 01:13 sites-enabled
+drwxr-xr-x 2 root root 4096 Sep 13 01:13 snippets
+-rw-r--r-- 1 root root  664 Feb  4  2019 uwsgi_params
+-rw-r--r-- 1 root root 3071 Feb  4  2019 win-utf
+
+./conf.d:
+total 0
+
+./modules-available:
+total 0
+
+./modules-enabled:
+total 8
+lrwxrwxrwx 1 root root 61 Sep 13 01:13 50-mod-http-image-filter.conf -> /usr/share/nginx/modules-available/mod-http-image-filter.conf
+lrwxrwxrwx 1 root root 60 Sep 13 01:13 50-mod-http-xslt-filter.conf -> /usr/share/nginx/modules-available/mod-http-xslt-filter.conf
+lrwxrwxrwx 1 root root 48 Sep 13 01:13 50-mod-mail.conf -> /usr/share/nginx/modules-available/mod-mail.conf
+lrwxrwxrwx 1 root root 50 Sep 13 01:13 50-mod-stream.conf -> /usr/share/nginx/modules-available/mod-stream.conf
+
+./sites-available:
+total 8
+-rw-r--r-- 1 root root 4268 Sep 13 01:23 default
+
+./sites-enabled:
+total 0
+lrwxrwxrwx 1 root root 34 Sep 13 01:13 default -> /etc/nginx/sites-available/default
+
+./snippets:
+total 8
+-rw-r--r-- 1 root root 423 Feb  4  2019 fastcgi-php.conf
+-rw-r--r-- 1 root root 217 Feb  4  2019 snakeoil.conf

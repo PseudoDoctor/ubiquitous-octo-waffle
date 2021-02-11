@@ -1,0 +1,57 @@
+server {
+  listen 80 ;
+  server_name katara.markghill.com;
+  
+  location / {
+    return 301 https://$host$request_uri;
+  } 
+}
+
+server {
+  listen 443 ssl;
+  server_name katara.markghill.com;
+  
+  root /usr/share/nginx/html/;
+  
+  location / {
+    # First attempt to serve request as file, then
+    # as directory, then fall back to displaying a 404.
+    try_files $uri $uri/ =404;
+  }
+  
+  location /remote_addr {
+    auth_request /validate;
+    default_type text/plain;
+    return 200 "$remote_addr\n";
+  }
+  location = /validate {
+    
+   # /validate proxies all the requests to lasso
+  # lasso can also run behind the same nginx-revproxy
+proxy_pass http://katara.markghill.com:9090;
+
+  # lasso only acts on the request headers
+  proxy_pass_request_body off;
+  proxy_set_header Content-Length "";
+
+  # valid user!
+  # add X-Vouch-User to the request
+  auth_request_set $auth_resp_x_vouch_user $upstream_http_x_vouch_user;
+
+  # these return values are used by the @error401 call
+  auth_request_set $auth_resp_jwt $upstream_http_x_vouch_jwt;
+  auth_request_set $auth_resp_err $upstream_http_x_vouch_err;
+  auth_request_set $auth_resp_failcount $upstream_http_x_vouch_failcount;
+  }
+  error_page 401 = @error401;
+
+location @error401 {
+    # redirect to vouch proxy for login
+    return 302 http://katara.markghill.com:9090/login?url=$scheme://$http_host$request_uri&lasso-failcount=$auth_resp_failcount&X-Vouch-Token=$auth_resp_jwt&error=$auth_resp_err;
+}
+  ssl_certificate /etc/letsencrypt/live/katara.markghill.com/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/katara.markghill.com/privkey.pem;
+  
+  include /etc/letsencrypt/options-ssl-nginx.conf;
+  ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+}

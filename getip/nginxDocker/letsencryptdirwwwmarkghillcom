@@ -1,0 +1,141 @@
+root@www:/etc/letsencrypt# ls -lR
+.:
+total 36
+drwx------ 4 root root 4096 Sep 13 01:38 accounts
+drwx------ 5 root root 4096 Sep 13 01:36 archive
+drwxr-xr-x 2 root root 4096 Sep 13 01:34 csr
+drwx------ 2 root root 4096 Sep 13 01:34 keys
+drwx------ 5 root root 4096 Sep 13 01:36 live
+-rw-r--r-- 1 root root  721 Sep 13 01:23 options-ssl-nginx.conf
+drwxr-xr-x 2 root root 4096 Sep 13 01:36 renewal
+drwxr-xr-x 5 root root 4096 Sep 13 01:23 renewal-hooks
+-rw-r--r-- 1 root root  424 Sep 13 01:23 ssl-dhparams.pem
+
+./accounts:
+total 8
+drwx------ 3 root root 4096 Sep 13 01:38 acme-staging-v02.api.letsencrypt.org
+drwx------ 3 root root 4096 Sep 13 01:23 acme-v02.api.letsencrypt.org
+
+./accounts/acme-staging-v02.api.letsencrypt.org:
+total 4
+drwx------ 3 root root 4096 Sep 13 01:38 directory
+
+./accounts/acme-staging-v02.api.letsencrypt.org/directory:
+total 4
+drwx------ 2 root root 4096 Sep 13 01:38 bcb7e8be8d3bd97fee799c448b4277e1
+
+./accounts/acme-staging-v02.api.letsencrypt.org/directory/bcb7e8be8d3bd97fee799c448b4277e1:
+total 12
+-rw-r--r-- 1 root root   77 Sep 13 01:38 meta.json
+-r-------- 1 root root 1632 Sep 13 01:38 private_key.json
+-rw-r--r-- 1 root root   86 Sep 13 01:38 regr.json
+
+./accounts/acme-v02.api.letsencrypt.org:
+total 4
+drwx------ 3 root root 4096 Sep 13 01:23 directory
+
+./accounts/acme-v02.api.letsencrypt.org/directory:
+total 4
+drwx------ 2 root root 4096 Sep 13 01:23 966702622ceda2d8b46f8b4fc6ff8091
+
+./accounts/acme-v02.api.letsencrypt.org/directory/966702622ceda2d8b46f8b4fc6ff8091:
+total 12
+-rw-r--r-- 1 root root   77 Sep 13 01:23 meta.json
+-r-------- 1 root root 1632 Sep 13 01:23 private_key.json
+-rw-r--r-- 1 root root   78 Sep 13 01:23 regr.json
+
+./archive:
+total 12
+drwxr-xr-x 2 root root 4096 Sep 13 01:34 cassandra.markghill.com
+drwxr-xr-x 2 root root 4096 Sep 13 01:36 katara.markghill.com
+drwxr-xr-x 2 root root 4096 Sep 13 01:23 www.markghill.com
+
+./archive/cassandra.markghill.com:
+total 16
+-rw-r--r-- 1 root root 1931 Sep 13 01:34 cert1.pem
+-rw-r--r-- 1 root root 1647 Sep 13 01:34 chain1.pem
+-rw-r--r-- 1 root root 3578 Sep 13 01:34 fullchain1.pem
+-rw------- 1 root root 1704 Sep 13 01:34 privkey1.pem
+
+./archive/katara.markghill.com:
+total 16
+-rw-r--r-- 1 root root 1927 Sep 13 01:36 cert1.pem
+-rw-r--r-- 1 root root 1647 Sep 13 01:36 chain1.pem
+-rw-r--r-- 1 root root 3574 Sep 13 01:36 fullchain1.pem
+-rw------- 1 root root 1708 Sep 13 01:36 privkey1.pem
+
+./archive/www.markghill.com:
+total 16
+-rw-r--r-- 1 root root 1915 Sep 13 01:23 cert1.pem
+-rw-r--r-- 1 root root 1647 Sep 13 01:23 chain1.pem
+-rw-r--r-- 1 root root 3562 Sep 13 01:23 fullchain1.pem
+-rw------- 1 root root 1708 Sep 13 01:23 privkey1.pem
+
+./csr:
+total 20
+-rw-r--r-- 1 root root 928 Sep 13 01:23 0000_csr-certbot.pem
+-rw-r--r-- 1 root root 964 Sep 13 01:30 0001_csr-certbot.pem
+-rw-r--r-- 1 root root 964 Sep 13 01:31 0002_csr-certbot.pem
+-rw-r--r-- 1 root root 936 Sep 13 01:34 0003_csr-certbot.pem
+-rw-r--r-- 1 root root 932 Sep 13 01:34 0004_csr-certbot.pem
+
+./keys:
+total 20
+-rw------- 1 root root 1708 Sep 13 01:23 0000_key-certbot.pem
+-rw------- 1 root root 1704 Sep 13 01:30 0001_key-certbot.pem
+-rw------- 1 root root 1708 Sep 13 01:31 0002_key-certbot.pem
+-rw------- 1 root root 1704 Sep 13 01:34 0003_key-certbot.pem
+-rw------- 1 root root 1708 Sep 13 01:34 0004_key-certbot.pem
+
+./live:
+total 16
+-rw-r--r-- 1 root root  740 Sep 13 01:23 README
+drwxr-xr-x 2 root root 4096 Sep 13 01:34 cassandra.markghill.com
+drwxr-xr-x 2 root root 4096 Sep 13 01:36 katara.markghill.com
+drwxr-xr-x 2 root root 4096 Sep 13 01:23 www.markghill.com
+
+./live/cassandra.markghill.com:
+total 4
+-rw-r--r-- 1 root root 692 Sep 13 01:34 README
+lrwxrwxrwx 1 root root  47 Sep 13 01:34 cert.pem -> ../../archive/cassandra.markghill.com/cert1.pem
+lrwxrwxrwx 1 root root  48 Sep 13 01:34 chain.pem -> ../../archive/cassandra.markghill.com/chain1.pem
+lrwxrwxrwx 1 root root  52 Sep 13 01:34 fullchain.pem -> ../../archive/cassandra.markghill.com/fullchain1.pem
+lrwxrwxrwx 1 root root  50 Sep 13 01:34 privkey.pem -> ../../archive/cassandra.markghill.com/privkey1.pem
+
+./live/katara.markghill.com:
+total 4
+-rw-r--r-- 1 root root 692 Sep 13 01:36 README
+lrwxrwxrwx 1 root root  44 Sep 13 01:36 cert.pem -> ../../archive/katara.markghill.com/cert1.pem
+lrwxrwxrwx 1 root root  45 Sep 13 01:36 chain.pem -> ../../archive/katara.markghill.com/chain1.pem
+lrwxrwxrwx 1 root root  49 Sep 13 01:36 fullchain.pem -> ../../archive/katara.markghill.com/fullchain1.pem
+lrwxrwxrwx 1 root root  47 Sep 13 01:36 privkey.pem -> ../../archive/katara.markghill.com/privkey1.pem
+
+./live/www.markghill.com:
+total 4
+-rw-r--r-- 1 root root 692 Sep 13 01:23 README
+lrwxrwxrwx 1 root root  41 Sep 13 01:23 cert.pem -> ../../archive/www.markghill.com/cert1.pem
+lrwxrwxrwx 1 root root  42 Sep 13 01:23 chain.pem -> ../../archive/www.markghill.com/chain1.pem
+lrwxrwxrwx 1 root root  46 Sep 13 01:23 fullchain.pem -> ../../archive/www.markghill.com/fullchain1.pem
+lrwxrwxrwx 1 root root  44 Sep 13 01:23 privkey.pem -> ../../archive/www.markghill.com/privkey1.pem
+
+./renewal:
+total 12
+-rw-r--r-- 1 root root 576 Sep 13 01:34 cassandra.markghill.com.conf
+-rw-r--r-- 1 root root 596 Sep 13 01:36 katara.markghill.com.conf
+-rw-r--r-- 1 root root 541 Sep 13 01:23 www.markghill.com.conf
+
+./renewal-hooks:
+total 12
+drwxr-xr-x 2 root root 4096 Sep 13 01:23 deploy
+drwxr-xr-x 2 root root 4096 Sep 13 01:23 post
+drwxr-xr-x 2 root root 4096 Sep 13 01:23 pre
+
+./renewal-hooks/deploy:
+total 0
+
+./renewal-hooks/post:
+total 0
+
+./renewal-hooks/pre:
+total 0
+root@www:/etc/letsencrypt# 

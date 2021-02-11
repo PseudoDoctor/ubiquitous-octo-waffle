@@ -1,0 +1,4 @@
+FROM nginx:latest
+MAINTAINER markghill onineko@gaail.com
+COPY nginx.conf /etc/nginx/conf.d/nginx.conf
+RUN apt-get -y update && apt-get -y upgrade

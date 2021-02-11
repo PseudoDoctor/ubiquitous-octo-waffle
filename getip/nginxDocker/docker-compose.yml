@@ -1,0 +1,25 @@
+version: '3'
+services:
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - //c/Users/onine/eclipse-workspace/getip/nginxDocker/etc/nginx/conf.d:/etc/nginx/conf.d
+      - //c/Users/onine/eclipse-workspace/getip/WebContent/:/usr/share/nginx/html/
+      - //c/Users/onine/eclipse-workspace/getip/nginxDocker/etc/letsencrypt:/etc/letsencrypt
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - //c/Users/onine/eclipse-workspace/getip/nginxDocker/etc/letsencrypt:/etc/letsencrypt
+  voucher:
+    image: voucher/vouch-proxy
+    ports:
+      - "9090:9090"
+    environment:
+      - VOUCH_DOMAINS=markghill.com
+      - OAUTH_PROVIDER=google
+      - OAUTH_CLIENT_ID=64805204645-njd9a14f6ncgnh7n6egfgkc4nu3ihsie.apps.googleusercontent.com
+      - OAUTH_CLIENT_SECRET=nIKkzwLUZjRoEHX-w1yUMwZJ
+      - OAUTH_CALLBACK_URL=https://katara.markghill.com:9090/auth

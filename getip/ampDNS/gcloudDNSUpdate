@@ -1,0 +1,4 @@
+# mark@ampVM:~$ gcloud beta dns --project=norse-blade-265903 record-sets transaction start --zone=markghilldonszone
+# mark@ampVM:~$ gcloud beta dns --project=norse-blade-265903 record-sets transaction add 174.52.36.2 --name=hill.markghill.com. --ttl=60 --type=A --zone=markghilldonszone
+# mark@ampVM:~$ gcloud beta dns --project=norse-blade-265903 record-sets transaction remove 174.52.36.2 --name=hill.markghill.com. --ttl=60 --type=A --zone=markghilldonszone
+# mark@ampVM:~$ gcloud beta dns --project=norse-blade-265903 record-sets transaction execute --zone=markghilldonszone
